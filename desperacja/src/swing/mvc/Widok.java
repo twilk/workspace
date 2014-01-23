@@ -2,6 +2,7 @@ package swing.mvc;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
+import java.awt.Component;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.Toolkit;
@@ -9,9 +10,11 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import javax.swing.Box;
+import javax.swing.ButtonGroup;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JCheckBoxMenuItem;
+import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JMenu;
@@ -19,6 +22,7 @@ import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.JRadioButton;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.JTextField;
@@ -38,8 +42,8 @@ public class Widok extends JFrame implements ActionListener
 	int wysEkranu = rozmiarEkranu.height; 
 	int szerEkranu = rozmiarEkranu.width;
 	
-	final static int DEFAULT_WYS = 800;
-	final static int DEFAULT_SZER = 600;
+	private static int DEFAULT_WYS = 800;
+	private static int DEFAULT_SZER = 600;
 	
 	
 	public Widok()
@@ -82,17 +86,63 @@ public class Widok extends JFrame implements ActionListener
 					public void actionPerformed(ActionEvent e) {
 						// TODO Auto-generated method stub
 						JFrame opcjeFrame = new JFrame();
-							opcjeFrame.setSize(300,200);
-							opcjeFrame.setResizable(false);
+							opcjeFrame.setSize(400,80);
+							opcjeFrame.setTitle("Wybierz rozdzielczosc okna glownego");
+							opcjeFrame.setResizable(true);
 							opcjeFrame.setLocation((szerEkranu-300)/2,(wysEkranu-200)/2);
 							opcjeFrame.setVisible(true);
 							
 						JPanel opcjeContent = new JPanel();
-							JLabel lWymiary = new JLabel("Wybierz rozdzielczosc okna glownego:");
 								
-							opcjeFrame.add(lWymiary);
+							//opcjeFrame.add(lWymiary);
 
-					
+						  String wymiary[] = {"800x600","400x300","1024x768"};
+							final JComboBox cWymiary = new JComboBox(wymiary);
+							
+							cWymiary.addActionListener(new ActionListener() {
+								
+								@Override
+								public void actionPerformed(ActionEvent e) {
+
+									zmienOkno(cWymiary.getSelectedIndex());
+								}
+
+								private void zmienOkno(int selectedIndex) {
+									if (selectedIndex == 0)
+									{	
+										DEFAULT_WYS = 800;
+										DEFAULT_SZER = 600;
+										
+										setSize(DEFAULT_WYS,DEFAULT_SZER);
+										setResizable(false);
+										setLocation((szerEkranu-DEFAULT_WYS)/2,(wysEkranu-DEFAULT_SZER)/2);
+									}
+									if (selectedIndex == 1)
+									{
+										DEFAULT_WYS = 400;
+										DEFAULT_SZER = 300;
+										
+										setSize(DEFAULT_WYS,DEFAULT_SZER);
+										setResizable(false);
+										setLocation((szerEkranu-DEFAULT_WYS)/2,(wysEkranu-DEFAULT_SZER)/2);
+													
+									}
+									if (selectedIndex == 2)
+									{
+										DEFAULT_WYS = 1024;
+										DEFAULT_SZER = 768;
+										
+										setSize(DEFAULT_WYS,DEFAULT_SZER);
+										setResizable(false);
+										setLocation((szerEkranu-DEFAULT_WYS)/2,(wysEkranu-DEFAULT_SZER)/2);
+										
+									}
+									
+									
+								}
+							});
+							cWymiary.setVisible(true);
+							opcjeFrame.add(cWymiary);
 					}
 				});
 						
