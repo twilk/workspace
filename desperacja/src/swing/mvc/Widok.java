@@ -4,6 +4,7 @@ import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
+import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -31,10 +32,22 @@ public class Widok extends JFrame implements ActionListener
 	JMenuItem mWczytaj, mPokaz, mDodaj, mUsun,mZapisz, mWyjscie,mAutor,mOpcje;
 	JCheckBoxMenuItem chZmien;
 	
+	
+	Toolkit zestaw = Toolkit.getDefaultToolkit(); 
+	Dimension rozmiarEkranu = zestaw.getScreenSize(); 
+	int wysEkranu = rozmiarEkranu.height; 
+	int szerEkranu = rozmiarEkranu.width;
+	
+	final static int DEFAULT_WYS = 800;
+	final static int DEFAULT_SZER = 600;
+	
+	
 	public Widok()
 	{
 		setTitle("Projektowo");
-		setSize(800,600);
+		setSize(DEFAULT_WYS,DEFAULT_SZER);
+		setResizable(false);
+		setLocation((szerEkranu-DEFAULT_WYS)/2,(wysEkranu-DEFAULT_SZER)/2);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setLayout(null);
 		
@@ -63,7 +76,28 @@ public class Widok extends JFrame implements ActionListener
 			mUsun  = new JMenuItem("Usun",'U');
 				mUsun.setEnabled(false);
 			mOpcje = new JMenuItem("Opcje",'O');
-			
+				mOpcje.addActionListener(new ActionListener() {
+					
+					@Override
+					public void actionPerformed(ActionEvent e) {
+						// TODO Auto-generated method stub
+						JFrame opcjeFrame = new JFrame();
+							opcjeFrame.setSize(300,200);
+							opcjeFrame.setResizable(false);
+							opcjeFrame.setLocation((szerEkranu-300)/2,(wysEkranu-200)/2);
+							opcjeFrame.setVisible(true);
+							
+						JPanel opcjeContent = new JPanel();
+							JLabel lWymiary = new JLabel("Wybierz rozdzielczosc okna glownego:");
+								
+							opcjeFrame.add(lWymiary);
+
+					
+					}
+				});
+						
+						
+						
 			menuNarzedzia.add(mDodaj);
 			menuNarzedzia.add(chZmien);
 			menuNarzedzia.add(mUsun);
@@ -85,45 +119,7 @@ public class Widok extends JFrame implements ActionListener
 	}
 	
 	
-    //JButton bWczytaj, bPokaz, bDodaj, bUsun,bZmien,bZapisz, bWyjdz;
-    /*
-    JButton dodaj2;
-    JButton czysc;
-    JButton usun;
-    JButton zmien;
-    JButton zmien2;
-    JButton pokaz;
-    JButton zapisz;
-    JButton wczytaj;
-    JButton wyjdz;
     
-    private JLabel guziki;
-    private JScrollPane srodekTabela;
-    private JPanel srodekDodaj;
-    private JLabel srodekUsun;
-    private JPanel srodekZmien;  
-    
-    JTable tabela;
-    JLabel start;
-    
-    JLabel[] pola = {new JLabel("Imie"),
-                     new JLabel("Nazwisko"),
-                     new JLabel("Wiek"),
-                     new JLabel("E-mail")};
-    JLabel[] pola2 = {new JLabel("Imie"),
-                     new JLabel("Nazwisko"),
-                     new JLabel("Wiek"),
-                     new JLabel("E-mail")};
-    
-    JTextField[] tF;
-    JTextField[] zF;
-    */
-    //JFrame okno;
-	
-
-
-
-
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		// TODO Auto-generated method stub
