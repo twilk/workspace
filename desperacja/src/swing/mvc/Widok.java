@@ -28,8 +28,9 @@ public class Widok extends JFrame implements ActionListener
 {
 	JMenuBar menuBar;
 	JMenu menuPlik, menuNarzedzia, menuPomoc;
-	JMenuItem mWczytaj, mPokaz, mDodaj, mUsun,mZapisz, mWyjscie,mAutor;
+	JMenuItem mWczytaj, mPokaz, mDodaj, mUsun,mZapisz, mWyjscie,mAutor,mOpcje;
 	JCheckBoxMenuItem chZmien;
+	
 	public Widok()
 	{
 		setTitle("Projektowo");
@@ -55,17 +56,18 @@ public class Widok extends JFrame implements ActionListener
 			menuPlik.add(mWyjscie);
 					
 			
-		menuNarzedzia = new JMenu ("Narzêdzia");
+		menuNarzedzia = new JMenu ("Narzedzia");
 			mDodaj = new JMenuItem("Dodaj",'D');
 			chZmien = new JCheckBoxMenuItem("Zmien");
 				chZmien.addActionListener(this);
 			mUsun  = new JMenuItem("Usun",'U');
 				mUsun.setEnabled(false);
+			mOpcje = new JMenuItem("Opcje",'O');
 			
 			menuNarzedzia.add(mDodaj);
 			menuNarzedzia.add(chZmien);
 			menuNarzedzia.add(mUsun);
-			
+			menuNarzedzia.add(mOpcje);
 		
 			
 			
