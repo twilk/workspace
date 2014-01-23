@@ -24,6 +24,7 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JRadioButton;
 import javax.swing.JScrollPane;
+import javax.swing.JSplitPane;
 import javax.swing.JTable;
 import javax.swing.JTextField;
 import javax.swing.KeyStroke;
@@ -87,7 +88,7 @@ public class Widok extends JFrame implements ActionListener
 						// TODO Auto-generated method stub
 						JFrame opcjeFrame = new JFrame();
 							opcjeFrame.setSize(400,80);
-							opcjeFrame.setTitle("Wybierz rozdzielczosc okna glownego");
+							opcjeFrame.setTitle("Wybierz rozdzielczosc okna glownego:");
 							opcjeFrame.setResizable(true);
 							opcjeFrame.setLocation((szerEkranu-300)/2,(wysEkranu-200)/2);
 							opcjeFrame.setVisible(true);
@@ -192,7 +193,16 @@ public class Widok extends JFrame implements ActionListener
 				}
 		}
 		if (z==mAutor)	JOptionPane.showMessageDialog(this, "Tomasz Wilk\n nr indeksu 215549");
-		
+// -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-==-=-=-=-=-
+		//Create a split pane with the two scroll panes in it.
+		JSplitPane splitPane = new JSplitPane(JSplitPane.HORIZONTAL_SPLIT);
+		splitPane.setOneTouchExpandable(true);
+		splitPane.setDividerLocation(150);
+
+		//Provide minimum sizes for the two components in the split pane
+		Dimension minimumSize = new Dimension(100, 50);
+//		listScrollPane.setMinimumSize(minimumSize);
+//		pictureScrollPane.setMinimumSize(minimumSize);
 	}
 	
 	public static void main(String[] args)
