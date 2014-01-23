@@ -18,11 +18,13 @@ public class SplitPane extends JFrame
 	JSplitPane splitPane = new JSplitPane(JSplitPane.HORIZONTAL_SPLIT, new JScrollPane(lLewy),new JScrollPane(lPrawy));
 
 	public SplitPane(){
-		lLewy.setIcon(new ImageIcon());
-		lPrawy.setIcon(new ImageIcon());
+		add(splitPane);
 	}
 	
 	public static void main(String[] args){
-		
+		SplitPane sP = new SplitPane();
+		sP.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+		sP.setSize(800, 600);
+		sP.setVisible(true);
 	}
 }

@@ -5,10 +5,14 @@ import java.awt.Color;
 import java.awt.Component;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
+import java.awt.GridBagConstraints;
+import java.awt.GridBagLayout;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import javax.print.attribute.standard.JobPrioritySupported;
+import javax.swing.BorderFactory;
 import javax.swing.Box;
 import javax.swing.ButtonGroup;
 import javax.swing.ImageIcon;
@@ -32,10 +36,14 @@ import javax.swing.KeyStroke;
 
 public class Widok extends JFrame implements ActionListener
 {
+	
 	JMenuBar menuBar;
 	JMenu menuPlik, menuNarzedzia, menuPomoc;
 	JMenuItem mWczytaj, mPokaz, mDodaj, mUsun,mZapisz, mWyjscie,mAutor,mOpcje;
 	JCheckBoxMenuItem chZmien;
+	
+	JLabel lLewy = new JLabel();
+	JLabel lPrawy = new JLabel();
 	
 	
 	Toolkit zestaw = Toolkit.getDefaultToolkit(); 
@@ -46,6 +54,10 @@ public class Widok extends JFrame implements ActionListener
 	private static int DEFAULT_WYS = 800;
 	private static int DEFAULT_SZER = 600;
 	
+	JSplitPane splitPane = new JSplitPane(JSplitPane.HORIZONTAL_SPLIT, 
+			new JScrollPane(lLewy),new JScrollPane(lPrawy));
+
+	JPanel jakisP = new JPanel();
 	
 	public Widok()
 	{
@@ -54,7 +66,17 @@ public class Widok extends JFrame implements ActionListener
 		setResizable(false);
 		setLocation((szerEkranu-DEFAULT_WYS)/2,(wysEkranu-DEFAULT_SZER)/2);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setLayout(null);
+		this.add(splitPane);
+			splitPane.setDividerLocation(DEFAULT_SZER/3);
+		//this.setLayout(new GridBagLayout());
+		//setLayout(null);
+		lLewy.setLayout(new GridBagLayout());
+		GridBagConstraints gbc = new GridBagConstraints();
+		
+		lLewy.add(new JLabel("Produkt"), gbc);
+		lLewy.add(new JLabel(),gbc);
+		
+		
 		
 		menuBar = new JMenuBar();
 		
@@ -92,10 +114,7 @@ public class Widok extends JFrame implements ActionListener
 							opcjeFrame.setResizable(true);
 							opcjeFrame.setLocation((szerEkranu-300)/2,(wysEkranu-200)/2);
 							opcjeFrame.setVisible(true);
-							
-						JPanel opcjeContent = new JPanel();
 								
-							//opcjeFrame.add(lWymiary);
 
 						  String wymiary[] = {"800x600","400x300","1024x768"};
 							final JComboBox cWymiary = new JComboBox(wymiary);
@@ -152,6 +171,7 @@ public class Widok extends JFrame implements ActionListener
 			menuNarzedzia.add(mDodaj);
 			menuNarzedzia.add(chZmien);
 			menuNarzedzia.add(mUsun);
+				menuNarzedzia.addSeparator();
 			menuNarzedzia.add(mOpcje);
 		
 			
@@ -194,22 +214,19 @@ public class Widok extends JFrame implements ActionListener
 		}
 		if (z==mAutor)	JOptionPane.showMessageDialog(this, "Tomasz Wilk\n nr indeksu 215549");
 // -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-==-=-=-=-=-
-		//Create a split pane with the two scroll panes in it.
-		JSplitPane splitPane = new JSplitPane(JSplitPane.HORIZONTAL_SPLIT);
-		splitPane.setOneTouchExpandable(true);
-		splitPane.setDividerLocation(150);
+JFrame mojContent = new JFrame();
+jakisP.add(splitPane);
+mojContent.add(jakisP);
 
-		//Provide minimum sizes for the two components in the split pane
-		Dimension minimumSize = new Dimension(100, 50);
-//		listScrollPane.setMinimumSize(minimumSize);
-//		pictureScrollPane.setMinimumSize(minimumSize);
-	}
+		}
+
+
+
 	
 	public static void main(String[] args)
 	{
 		  Widok widok= new Widok();
-		  widok.setVisible(true);
-		  
+		  widok.setVisible(true);	  
 	}
 	
     
