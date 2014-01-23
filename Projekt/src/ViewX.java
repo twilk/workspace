@@ -16,7 +16,7 @@ public class ViewX extends JFrame implements ActionListener
 	
 	public ViewX()
 	{
-		setSize(800,600);
+		setSize(300,400);
 		setTitle("Projekt Tomasz Wilk");
 		setLayout(null);
 		

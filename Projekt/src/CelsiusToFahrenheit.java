@@ -19,10 +19,10 @@ public class CelsiusToFahrenheit extends JFrame implements ActionListener
 
 		
 		setSize(400,300);
-		setTitle("Przeliczanie celsjusza na farenhajta");
+		setTitle("BazoDanowaJavaProjekt");
 		setLayout(null);
 		
-		lCelsius = new JLabel("Stopnie Celsjusza");
+		lCelsius = new JLabel("Imiê");
 		lCelsius.setBounds(20, 20, 150, 20);
 		add(lCelsius);
 		
@@ -30,7 +30,7 @@ public class CelsiusToFahrenheit extends JFrame implements ActionListener
 		tCelsius.setBounds(170, 20, 150, 20);
 		add(tCelsius);
 
-		lFahrenheit = new JLabel("Stopnie Fahrenheita");
+		lFahrenheit = new JLabel("Nazwisko");
 		lFahrenheit.setBounds(20, 70, 150, 20);
 		add(lFahrenheit);
 				
@@ -38,7 +38,7 @@ public class CelsiusToFahrenheit extends JFrame implements ActionListener
 		tFahrenheit.setBounds(170, 70, 150, 20);
 		add(tFahrenheit);
 		
-		bKonwertuj = new JButton("Konwertuj");
+		bKonwertuj = new JButton("Dodaj");
 		bKonwertuj.setBounds(100, 100, 150, 20);
 		add(bKonwertuj);
 		bKonwertuj.addActionListener(this);
