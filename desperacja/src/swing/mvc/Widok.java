@@ -126,7 +126,13 @@ public class Widok extends JFrame implements ActionListener
 	public void actionPerformed(ActionEvent e) {
 		// TODO Auto-generated method stub
 		Object z = e.getSource();
-		if (z == mWyjscie)	dispose();
+		if (z == mWyjscie)
+			{
+			int odp = JOptionPane.showConfirmDialog(null, "Czy na pewno wyjœæ ?","Potwierdzenie",JOptionPane.YES_NO_OPTION);
+				if(odp==JOptionPane.YES_OPTION){ JOptionPane.showMessageDialog(null, "Do zobaczenia.");	dispose(); }
+				else if (odp==JOptionPane.NO_OPTION) JOptionPane.showMessageDialog(null, "W porz¹dku :)");
+				else if (odp==JOptionPane.CLOSED_OPTION) JOptionPane.showMessageDialog(null, " Czemu tak ? ","UWAZAJ",JOptionPane.WARNING_MESSAGE);
+			}
 		if (z==chZmien)
 		{
 			if(chZmien.isSelected())
