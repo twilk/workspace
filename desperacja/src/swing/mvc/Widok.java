@@ -95,7 +95,11 @@ public class Widok extends JFrame
 			mUsun  = new JMenuItem("Usun",'U');
 				mUsun.setEnabled(false);
 			mOpcje = new JMenuItem("Opcje",'O');
-										
+				opcjeFrame.setSize(400,80);
+				opcjeFrame.setTitle("Wybierz rozdzielczosc okna glownego");
+				opcjeFrame.setResizable(false);
+				opcjeFrame.setLocation((szerEkranu-400)/2,(wysEkranu-80)/2);
+				opcjeFrame.add(cWymiary);
 						
 						
 			menuNarzedzia.add(mDodaj);

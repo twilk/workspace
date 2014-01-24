@@ -26,6 +26,7 @@ public class Controler {
           this.widok.chZmien.addActionListener(Zmien);
           this.widok.mOpcje.addActionListener(Opcje);
     //    this.widok.mAutor.addActionListener(Autor);
+          this.widok.cWymiary.addActionListener(Wymiary);
     }
     
     ActionListener Wyjscie = new ActionListener(){
@@ -54,51 +55,50 @@ public class Controler {
 	};
 	
 	ActionListener Opcje = new ActionListener() {
+				
+		@Override
+		public void actionPerformed(ActionEvent e) {
+			// TODO Auto-generated method stub
+			
+			widok.opcjeFrame.setVisible(true);
+		}		
+	};
+	
+	ActionListener Wymiary = new ActionListener() {
 		
 		@Override
 		public void actionPerformed(ActionEvent e) {
 			// TODO Auto-generated method stub
 			zmienOkno(widok.cWymiary.getSelectedIndex());
-			widok.opcjeFrame.add(widok.cWymiary);
-			widok.cWymiary.setVisible(true);
+			
+			widok.setSize(Widok.DEFAULT_WYS,Widok.DEFAULT_SZER);
+			widok.setResizable(false);
+			widok.setLocation((widok.szerEkranu-Widok.DEFAULT_WYS)/2,(widok.wysEkranu-Widok.DEFAULT_SZER)/2);
+		
 		}
+
 		private void zmienOkno(int selectedIndex) {
 			if ( selectedIndex == 0)
 			{	
 				Widok.DEFAULT_WYS = 800;
 				Widok.DEFAULT_SZER = 600;
-				
-				widok.setSize(Widok.DEFAULT_WYS,Widok.DEFAULT_SZER);
-				widok.setResizable(false);
-				widok.setLocation((widok.szerEkranu-Widok.DEFAULT_WYS)/2,(widok.wysEkranu-Widok.DEFAULT_SZER)/2);
 			}
 			if (selectedIndex == 1)
 			{
 				Widok.DEFAULT_WYS = 400;
-				Widok.DEFAULT_SZER = 300;
-				
-				widok.setSize(Widok.DEFAULT_WYS,Widok.DEFAULT_SZER);
-				widok.setResizable(false);
-				widok.setLocation((widok.szerEkranu-Widok.DEFAULT_WYS)/2,(widok.wysEkranu-Widok.DEFAULT_SZER)/2);
-							
+				Widok.DEFAULT_SZER = 300;				
 			}
 			if (selectedIndex == 2)
 			{
 				Widok.DEFAULT_WYS = 1024;
 				Widok.DEFAULT_SZER = 768;
-				
-				widok.setSize(Widok.DEFAULT_WYS,Widok.DEFAULT_SZER);
-				widok.setResizable(false);
-				widok.setLocation((widok.szerEkranu-Widok.DEFAULT_WYS)/2,(widok.wysEkranu-Widok.DEFAULT_SZER)/2);
-				
 			}
 
 
 
 		}	
-		
-	};
 
+	};
 }
 
 /*	public class WymiaryLisnener implements ActionListener {
