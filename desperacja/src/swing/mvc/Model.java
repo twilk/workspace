@@ -4,17 +4,25 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.Properties;
 
 
 public class Model {
 	
+	ResultSet rs;
+	public boolean czyConn = false;
+
 	public static Connection conn = null;
+	
 	Model() {
-		reset();
+		polacz();
 	}
-public void reset() {
+
+	
+	public void polacz() {
 	try {
 		conn = getConnection();
 		System.out.println("Polaczenie z baza danych dziala");
@@ -24,6 +32,15 @@ public void reset() {
 	}
 	
 }
+public void getStuff() throws SQLException{
+	Statement stat = null;
+	stat = conn.createStatement();
+	
+	stat.executeQuery("SELECT * FROM MAGAZYN");
+	
+	
+}
+
 
 	public static Connection getConnection() 
 			throws SQLException, IOException 

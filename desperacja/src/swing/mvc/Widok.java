@@ -1,5 +1,6 @@
 package swing.mvc;
 
+import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
@@ -12,12 +13,15 @@ import javax.swing.JCheckBoxMenuItem;
 import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JList;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.JScrollPane;
 import javax.swing.JSplitPane;
+import javax.swing.JTextField;
 import javax.swing.KeyStroke;
+import javax.swing.ListSelectionModel;
 
 
 public class Widok extends JFrame
@@ -28,6 +32,7 @@ public class Widok extends JFrame
 	JMenuItem mWczytaj, mPokaz, mDodaj, mUsun,mZapisz, mWyjscie,mAutor,mOpcje;
 	JCheckBoxMenuItem chZmien;
 	
+	String[] Dane = new String[10];
 	public static String wymiary[] = {"800x600","400x300","1024x768"};
 	public static JComboBox cWymiary = new JComboBox(wymiary);
 	JFrame opcjeFrame = new JFrame();
@@ -45,6 +50,11 @@ public class Widok extends JFrame
 	JSplitPane splitPane = new JSplitPane(JSplitPane.HORIZONTAL_SPLIT, 
 			new JScrollPane(lLewy),new JScrollPane(lPrawy));
 
+	public static JTextField[] pola = {new JTextField("nazwa"),
+            new JTextField("ilosc"),
+            new JTextField("cena"),
+            new JTextField("gwarancja"),
+            new JTextField("spec")};
 	
 	public Widok(Model model)
 	{
@@ -66,11 +76,21 @@ public class Widok extends JFrame
 			
 			lPrawy.setLayout(new GridBagLayout());
 			GridBagConstraints pGBC = new GridBagConstraints();
-			
-			
+			lPrawy.add( pola[1], BorderLayout.PAGE_START);
 			//lPrawy.add(srodekTabela, BorderLayout.CENTER);
 		
 	}		
+	
+	void doTabele(){
+		Dane[1] = "1";
+		Dane[2] = "2";
+		
+		JList<String> list = new JList<String>(Dane); //data has type Object[]
+		list.setSelectionMode(ListSelectionModel.SINGLE_INTERVAL_SELECTION);
+		//list.setLayoutOrientation(JList.HORIZONTAL_WRAP);
+		//list.setVisibleRowCount(-1);
+		lPrawy.add(list);
+	}
 	void zaladujMenu(){
 		menuBar = new JMenuBar();
 		
