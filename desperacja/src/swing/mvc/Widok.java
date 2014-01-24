@@ -9,6 +9,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import javax.swing.Box;
+import javax.swing.JButton;
 import javax.swing.JCheckBoxMenuItem;
 import javax.swing.JComboBox;
 import javax.swing.JFrame;
@@ -46,6 +47,7 @@ public class Widok extends JFrame
 	
 	public static int DEFAULT_WYS = 800;
 	public static int DEFAULT_SZER = 600;
+	public static int zmiana=0;
 	
 	JSplitPane splitPane = new JSplitPane(JSplitPane.HORIZONTAL_SPLIT, 
 			new JScrollPane(lLewy),new JScrollPane(lPrawy));
@@ -73,10 +75,13 @@ public class Widok extends JFrame
 			GridBagConstraints lGBC = new GridBagConstraints();
 			
 	        //lLewy.add(null, new ImageIcon("src/swing/mvc/Images.3gif"));
-			lLewy.add(new JLabel("rtedgyhuiu"),lGBC);
+			lLewy.add(new JButton("The useless button"),lGBC);
 			
 			lPrawy.setLayout(new GridBagLayout());
 			GridBagConstraints pGBC = new GridBagConstraints();
+			
+			
+			if(zmiana==1){
 			pGBC.gridy = 0;
 			for (int i=0; i<5; i++)
 			{
@@ -87,40 +92,78 @@ public class Widok extends JFrame
 			
 			for (int i=0; i<5; i++)
 			{
-				for (int j=0; j<20; j++){
+				for (int j=0; j<7; j++){
 					pGBC.gridx = 0;
 					pGBC.gridy = j+1;
-					if (i==0) lPrawy.add(new JLabel(Model.magazyn[j]), pGBC);
+					if (i==0) lPrawy.add(new JTextField(Model.magazyn[j]), pGBC);
 				}
-				for (int j=0; j<20; j++){
+				for (int j=0; j<7; j++){
 					pGBC.gridx = 1;
 					pGBC.gridy = j+1;
-					if (i==0) lPrawy.add(new JLabel(Model.sztuk[j]), pGBC);
+					if (i==0) lPrawy.add(new JTextField(Model.sztuk[j]), pGBC);
 				}
-				for (int j=0; j<20; j++){
+				for (int j=0; j<7; j++){
 					pGBC.gridx = 2;
 					pGBC.gridy = j+1;
-					if (i==0) lPrawy.add(new JLabel(Model.cena[j]), pGBC);
+					if (i==0) lPrawy.add(new JTextField(Model.cena[j]), pGBC);
 				}
-				for (int j=0; j<20; j++){
+				for (int j=0; j<7; j++){
 					pGBC.gridx = 3;
 					pGBC.gridy = j+1;
-					if (i==0) lPrawy.add(new JLabel(Model.gwarancja[j]), pGBC);
+					if (i==0) lPrawy.add(new JTextField(Model.gwarancja[j]), pGBC);
 				}
-				for (int j=0; j<20; j++){
+				for (int j=0; j<7; j++){
+				
 					pGBC.gridx = 4;
 					pGBC.gridy = j+1;
-					if (i==0) lPrawy.add(new JLabel(Model.spec[j]), pGBC);
+					if (i==0) lPrawy.add(new JTextField(Model.spec[j]), pGBC);
 				}
 			
-			
-			
 			}
-	}		
-	
-	void doTabele(){
-		
+			
 	}
+			if(zmiana==0){
+				pGBC.gridy = 0;
+				for (int i=0; i<5; i++)
+				{
+					pGBC.gridx = i;
+				pola[i].setEditable(false);
+				lPrawy.add( pola[i], pGBC);
+				}
+				
+				for (int i=0; i<5; i++)
+				{
+					for (int j=0; j<7; j++){
+						pGBC.gridx = 0;
+						pGBC.gridy = j+1;
+						if (i==0) lPrawy.add(new JTextField(Model.magazyn[j]), pGBC);
+					}
+					for (int j=0; j<7; j++){
+						pGBC.gridx = 1;
+						pGBC.gridy = j+1;
+						if (i==0) lPrawy.add(new JTextField(Model.sztuk[j]), pGBC);
+					}
+					for (int j=0; j<7; j++){
+						pGBC.gridx = 2;
+						pGBC.gridy = j+1;
+						if (i==0) lPrawy.add(new JTextField(Model.cena[j]), pGBC);
+					}
+					for (int j=0; j<7; j++){
+						pGBC.gridx = 3;
+						pGBC.gridy = j+1;
+						if (i==0) lPrawy.add(new JTextField(Model.gwarancja[j]), pGBC);
+					}
+					for (int j=0; j<7; j++){
+						pGBC.gridx = 4;
+						pGBC.gridy = j+1;
+						if (i==0) lPrawy.add(new JTextField(Model.spec[j]), pGBC);
+					}
+				
+				};
+			}
+	}
+
+
 	void zaladujMenu(){
 		menuBar = new JMenuBar();
 		
@@ -174,11 +217,4 @@ public class Widok extends JFrame
 	
 	
 
-
-
-
-
 }
-
-
-

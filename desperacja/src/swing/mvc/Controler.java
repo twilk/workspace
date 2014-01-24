@@ -45,11 +45,10 @@ public class Controler {
 		public void actionPerformed(ActionEvent e) {
 			// TODO Auto-generated method stub
 			if(widok.chZmien.isSelected())
-			{
-				//tu akcja dla Zmien.zaznaczone
+			{ widok.zmiana=1;		//model.magazyn[1].setEditable;
 			}else if(!widok.chZmien.isSelected())
 				{
-				//tu akcja dla Zmien.niezaznaczone
+				widok.zmiana=0;//tu akcja dla Zmien.niezaznaczone
 				}
 		}
 	};
