@@ -50,7 +50,8 @@ public class Widok extends JFrame
 	JSplitPane splitPane = new JSplitPane(JSplitPane.HORIZONTAL_SPLIT, 
 			new JScrollPane(lLewy),new JScrollPane(lPrawy));
 
-	public static JTextField[] pola = {new JTextField("nazwa"),
+	public static JTextField[] pola = {
+			new JTextField("nazwa"),
             new JTextField("ilosc"),
             new JTextField("cena"),
             new JTextField("gwarancja"),
@@ -72,24 +73,53 @@ public class Widok extends JFrame
 			GridBagConstraints lGBC = new GridBagConstraints();
 			
 	        //lLewy.add(null, new ImageIcon("src/swing/mvc/Images.3gif"));
-			//lLewy.add(new JLabel(),lGBC);
+			lLewy.add(new JLabel("rtedgyhuiu"),lGBC);
 			
 			lPrawy.setLayout(new GridBagLayout());
 			GridBagConstraints pGBC = new GridBagConstraints();
-			lPrawy.add( pola[1], BorderLayout.PAGE_START);
-			//lPrawy.add(srodekTabela, BorderLayout.CENTER);
-		
+			pGBC.gridy = 0;
+			for (int i=0; i<5; i++)
+			{
+				pGBC.gridx = i;
+			pola[i].setEditable(false);
+			lPrawy.add( pola[i], pGBC);
+			}
+			
+			for (int i=0; i<5; i++)
+			{
+				for (int j=0; j<20; j++){
+					pGBC.gridx = 0;
+					pGBC.gridy = j+1;
+					if (i==0) lPrawy.add(new JLabel(Model.magazyn[j]), pGBC);
+				}
+				for (int j=0; j<20; j++){
+					pGBC.gridx = 1;
+					pGBC.gridy = j+1;
+					if (i==0) lPrawy.add(new JLabel(Model.sztuk[j]), pGBC);
+				}
+				for (int j=0; j<20; j++){
+					pGBC.gridx = 2;
+					pGBC.gridy = j+1;
+					if (i==0) lPrawy.add(new JLabel(Model.cena[j]), pGBC);
+				}
+				for (int j=0; j<20; j++){
+					pGBC.gridx = 3;
+					pGBC.gridy = j+1;
+					if (i==0) lPrawy.add(new JLabel(Model.gwarancja[j]), pGBC);
+				}
+				for (int j=0; j<20; j++){
+					pGBC.gridx = 4;
+					pGBC.gridy = j+1;
+					if (i==0) lPrawy.add(new JLabel(Model.spec[j]), pGBC);
+				}
+			
+			
+			
+			}
 	}		
 	
 	void doTabele(){
-		Dane[1] = "1";
-		Dane[2] = "2";
 		
-		JList<String> list = new JList<String>(Dane); //data has type Object[]
-		list.setSelectionMode(ListSelectionModel.SINGLE_INTERVAL_SELECTION);
-		//list.setLayoutOrientation(JList.HORIZONTAL_WRAP);
-		//list.setVisibleRowCount(-1);
-		lPrawy.add(list);
 	}
 	void zaladujMenu(){
 		menuBar = new JMenuBar();

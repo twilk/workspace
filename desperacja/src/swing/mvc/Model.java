@@ -14,11 +14,21 @@ public class Model {
 	
 	ResultSet rs;
 	public boolean czyConn = false;
-
+	public static String[] magazyn = new String[20];
+	public static String[] sztuk = new String[20];
+	public static String[] cena = new String[20];
+	public static String[] gwarancja = new String[20];
+	public static String[] spec = new String[20];
 	public static Connection conn = null;
 	
 	Model() {
 		polacz();
+		try {
+			getStuff();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 
 	
@@ -35,8 +45,26 @@ public class Model {
 public void getStuff() throws SQLException{
 	Statement stat = null;
 	stat = conn.createStatement();
-	
-	stat.executeQuery("SELECT * FROM MAGAZYN");
+	ResultSet rs = stat.executeQuery("SELECT * FROM MAGAZYN");
+	int i=0;
+	while (rs.next()){
+		magazyn[i] = new String();
+		magazyn[i] = rs.getString(1);
+		System.out.print(rs.getString(1)+ "\n");
+		sztuk[i] = new String();
+		sztuk[i] = Integer.toString(rs.getInt(2));
+		System.out.print(rs.getInt(2)+ "\n");
+		cena[i] = new String();
+		cena[i] = Integer.toString(rs.getInt(3));
+		System.out.print(rs.getInt(3)+ "\n");
+		gwarancja[i] = new String();
+		gwarancja[i] = rs.getString(4);
+		System.out.print(rs.getString(4)+ "\n");
+		spec[i] = new String();
+		spec[i] = rs.getString(5);
+		System.out.print(rs.getString(5)+ "\n");
+		i++;
+	}
 	
 	
 }
