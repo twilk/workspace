@@ -212,7 +212,8 @@ public class CRUD {
 
 
     public static void main(String[] args) throws IOException, SQLException {
-        CRUD test = new CRUD();
+    	System.out.println("Lata");
+        /*CRUD test = new CRUD();
         test.CreateUserTable();
         test.Insert("Sebastian1", "Tajne has³o");
         test.Insert("Sebastian2", "Tajne has³o");
@@ -227,6 +228,7 @@ public class CRUD {
         test.Delete(2);
         test.Select();
         test.DropUserTable();
+        */
     }
 
 }
