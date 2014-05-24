@@ -1,4 +1,3 @@
-package swing.mvc;
 
 	import java.sql.DriverManager;
 	import java.sql.Connection;
