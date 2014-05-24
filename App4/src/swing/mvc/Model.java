@@ -21,7 +21,7 @@ public class Model {
 	public static String[] spec = new String[20];
 	public static Connection conn = null;
 	
-	Model() {
+	Model() throws ClassNotFoundException {
 		polacz();
 		try {
 			getStuff();
@@ -32,7 +32,7 @@ public class Model {
 	}
 
 	
-	public void polacz() {
+	public void polacz() throws ClassNotFoundException {
 	try {
 		conn = getConnection();
 		System.out.println("Polaczenie z baza danych dziala");
@@ -42,6 +42,7 @@ public class Model {
 	}
 	
 }
+
 public void getStuff() throws SQLException{
 	Statement stat = null;
 	stat = conn.createStatement();
@@ -69,10 +70,26 @@ public void getStuff() throws SQLException{
 	
 	
 }
+/*	
+public class Main {
+	 
+	public static void main(String[] args) throws SQLException, ClassNotFoundException {
+		Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");	
+		Connection conn = DriverManager.getConnection("jdbc:sqlserver://HOSP_SQL1.company.com;user=name;password=abcdefg;database=Test");
+		System.out.println("test");
+		Statement sta = conn.createStatement();
+		String Sql = "select * from testing_table";
+		ResultSet rs = sta.executeQuery(Sql);
+		while (rs.next()) {
+			System.out.println(rs.getString("txt_title"));
+		}
+	}
+}
+*/
 
 
 	public static Connection getConnection() 
-			throws SQLException, IOException 
+			throws SQLException, IOException, ClassNotFoundException
 	{ 
 		Properties props = new Properties(); 
 		FileInputStream in = new FileInputStream("database.properties"); 
@@ -80,7 +97,7 @@ public void getStuff() throws SQLException{
 		in.close(); 
 		
 		try {
-			Class.forName("org.postgresql.Driver").newInstance();
+			Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver").newInstance();
 		} catch (Exception e){
 			e.printStackTrace();
 		}
@@ -92,7 +109,10 @@ public void getStuff() throws SQLException{
 		String url = props.getProperty("jdbc.url"); 
 		String username = props.getProperty("jdbc.username"); 
 		String password = props.getProperty("jdbc.password");
-		System.out.println("Masakra: " +url+" "+username+" "+password+" "+drivers);
+		String database = props.getProperty("jdbc.database");
+		
+		//jdbc:sqlserver://HOSP_SQL1.company.com;user=name;password=abcdefg;database=Test"
+		System.out.println("Masakra: \nURL: " +url+"\nUsername: "+username+"\nPassword: "+password+"\nDriver: "+drivers);
 		return 	DriverManager.getConnection(url, username, password); 
 		
 	}
