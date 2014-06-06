@@ -47,10 +47,10 @@ public class Controller {
 					System.out.println("Proby: " + liczba);	
 				}
 				else if(wynik<0){
-					JOptionPane.showMessageDialog(v_view, "Za malo");
+					JOptionPane.showMessageDialog(v_view, "Za wysoka");
 				}
 				else{
-					JOptionPane.showMessageDialog(v_view, "Za duzo");
+					JOptionPane.showMessageDialog(v_view, "Za niska");
 				}
 			}
 			catch (Exception e2) {

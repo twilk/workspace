@@ -1,4 +1,15 @@
 <?xml version="1.0" encoding="latin2"?>
-<body xmlns="http://my.com" xmlns:xsd="http://www.w3.org/2001/XMLSchema-instance" xsd:schemaLocation="http://my.com personal.xsd"><proby>10</proby><do>100</do><pierwszy>1</pierwszy><pierwszy_imie>taktaktaktaktak</pierwszy_imie><drugi>1</drugi><drugi_imie>asdsadasdasd</drugi_imie><trzeci>1</trzeci><trzeci_imie>tak</trzeci_imie><czwarty>1</czwarty><czwarty_imie>dwadwa</czwarty_imie>
-	<piąty>1</piąty>
-	<piąty_imie>bartek</piąty_imie></body>
+<body xmlns="http://my.com" xmlns:xsd="http://www.w3.org/2001/XMLSchema-instance" xsd:schemaLocation="http://my.com ranked.xsd">
+<proby>10</proby>
+<do>14</do>
+<first>1</first>
+<nickone>WLQ</nickone>
+<second>1</second>
+<nicktwo>Bes</nicktwo>
+<third>2</third>
+<nickthree>WLQ2</nickthree>
+<fourth>2</fourth>
+<nickfour>asdsadasdasd</nickfour>
+<fifth>3</fifth>
+<nickfive>tak</nickfive>
+</body>

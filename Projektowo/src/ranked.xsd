@@ -5,16 +5,16 @@
 
 			<xsd:element name="proby" type="xsd:string"/>
 			<xsd:element name="do" type="xsd:string"/>
-			<xsd:element name="pierwszy" type="xsd:string"/>
-                        <xsd:element name="pierwszy_imie" type="xsd:string"/>
-                        <xsd:element name="drugi" type="xsd:string"/>
-                        <xsd:element name="drugi_imie" type="xsd:string"/>
-                        <xsd:element name="trzeci" type="xsd:string"/>
-                        <xsd:element name="trzeci_imie" type="xsd:string"/>
-                        <xsd:element name="czwarty" type="xsd:string"/>
-                        <xsd:element name="czwarty_imie" type="xsd:string"/>
-                        <xsd:element name="piąty" type="xsd:string"/>
-                        <xsd:element name="piąty_imie" type="xsd:string"/>
+						<xsd:element name="first" type="xsd:string"/>
+                        <xsd:element name="nickone" type="xsd:string"/>
+                        <xsd:element name="second" type="xsd:string"/>
+                        <xsd:element name="nicktwo" type="xsd:string"/>
+                        <xsd:element name="third" type="xsd:string"/>
+                        <xsd:element name="nickthree" type="xsd:string"/>
+                        <xsd:element name="fourth" type="xsd:string"/>
+                        <xsd:element name="nickfour" type="xsd:string"/>
+                        <xsd:element name="fifth" type="xsd:string"/>
+                        <xsd:element name="nickfive" type="xsd:string"/>
 			</xsd:sequence>
 		</xsd:complexType>
 	</xsd:element>

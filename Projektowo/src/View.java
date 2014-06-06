@@ -1,13 +1,16 @@
 import java.awt.*;
 import java.awt.event.ActionListener;
+import java.io.File;
+import java.io.IOException;
 
+import javax.imageio.ImageIO;
 import javax.swing.*;
 
 
 class View extends JFrame {
 	private static final long serialVersionUID = 1L;
 	
-	//wszystko co niezbedne :)
+	
 	private JTextField proba = new JTextField(2);
 	private JTextField imie = new JTextField(20);
 	private JButton wyslij = new JButton("Wyslij"); 
@@ -25,27 +28,32 @@ public View(Model model){
     Dimension rozmiarEkranu = zestaw.getScreenSize();
     int wysEkranu = rozmiarEkranu.height;
     int szerEkranu = rozmiarEkranu.width;
-
-    // ustawianie szerokosci i wysokosci glownego okna
-    setSize(szerEkranu / 3, wysEkranu / 6);
+    setIconImage(new ImageIcon("C:\\Users\\Tomasz\\workspace\\Projektowo\\Wolf track.png").getImage());
+    //JOptionPane.showMessageDialog(null,"rozdzielczosc okna to: "+wysEkranu+"x"+szerEkranu);
+    setLayout (null);
+	// ustawianie szerokosci i wysokosci glownego okna
+    setSize(600, 400);
     // ustawianie pozycji glownego okna
-    setLocation(szerEkranu / 3, wysEkranu / 3);
+    setLocation(szerEkranu / 2, wysEkranu / 2);
     // okresl ikone i tytul ramki
-    setTitle("Guess what...");
+    setTitle("What card am I ?");
     // standardowa reakcja na zamkniecie programu
     setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     Container powZawartosci = getContentPane();
     // dolacz etykiete z tekstem
-    etykieta = new JLabel("(0-99)");
+    etykieta = new JLabel("(A,1,2,3,4,5,6,7,8,9,d,W,D,K)");
     //etykieta.setFont(new Font("Arial", Font.PLAIN,ROZMIAR));
     powZawartosci.add(etykieta,BorderLayout.NORTH);
     content.setLayout(new BoxLayout(content, BoxLayout.Y_AXIS));
+
+    
+    
     content.add(etykieta);
     content.add(proba);
     JPanel btnpanel = new JPanel();
     btnpanel.add(okbtn);
     content.add(btnpanel);
-    content.setBackground(Color.white);
+    //content.setBackground(Color.white);
     btnpanel.setBackground(Color.white);
     
     this.setContentPane(content);
@@ -134,6 +142,6 @@ String imieAdd() {
 
 
 void showError(String errMessage) {
-	JOptionPane.showMessageDialog(this, errMessage, "Błąd krytyczny",JOptionPane.ERROR_MESSAGE);
+	JOptionPane.showMessageDialog(this, errMessage, "Blad krytyczny",JOptionPane.ERROR_MESSAGE);
 }
 }
