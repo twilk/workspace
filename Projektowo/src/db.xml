@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="latin2"?>
+<body xmlns="http://my.com" xmlns:xsd="http://www.w3.org/2001/XMLSchema-instance" xsd:schemaLocation="http://my.com personal.xsd"><proby>10</proby><do>100</do><pierwszy>1</pierwszy><pierwszy_imie>taktaktaktaktak</pierwszy_imie><drugi>1</drugi><drugi_imie>asdsadasdasd</drugi_imie><trzeci>1</trzeci><trzeci_imie>tak</trzeci_imie><czwarty>1</czwarty><czwarty_imie>dwadwa</czwarty_imie>
+	<piąty>1</piąty>
+	<piąty_imie>bartek</piąty_imie></body>
