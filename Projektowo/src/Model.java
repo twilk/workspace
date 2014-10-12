@@ -19,7 +19,9 @@ public class Model {
     int zakres;
 	Random r = new Random();
 	int liczba=r.nextInt(set());
-	char karty[]={'A','2','3','4','5','6','7','8','9','d','W','D','K'};
+	
+	char karty[]={'0','A','2','3','4','5','6','7','8','9','d','W','D','K'};
+	
 	String imie;
 	int proby;
 	static int jeden,dwa, trzy, cztery, piec;
@@ -35,7 +37,7 @@ public class Model {
 	public static Document document;
         
 	int porownaj(String s){
-		liczba++;
+		
 		char tmp = s.charAt(0);
 		int tmpliczba = tmp;
 		if(tmp=='A')tmpliczba=1;

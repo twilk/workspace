@@ -41,7 +41,7 @@ public View(Model model){
     setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     Container powZawartosci = getContentPane();
     // dolacz etykiete z tekstem
-    etykieta = new JLabel("(A,1,2,3,4,5,6,7,8,9,d,W,D,K)");
+    etykieta = new JLabel("(A,2,3,4,5,6,7,8,9,d,W,D,K)");
     //etykieta.setFont(new Font("Arial", Font.PLAIN,ROZMIAR));
     powZawartosci.add(etykieta,BorderLayout.NORTH);
     content.setLayout(new BoxLayout(content, BoxLayout.Y_AXIS));
